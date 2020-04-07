@@ -9,18 +9,22 @@ from bs4 import BeautifulSoup
 import re
 import requests
 from googlesearch import search
+import os
+from dotenv import load_dotenv
 
-# AIzaSyAPfd60CrXhRTUPonnPBKrsuWI2aTOBjfA
+load_dotenv()
+
+SERVER_TOKEN = os.getenv("SERVER_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+
+load_dotenv()
 
 Client = discord.Client()
 
 client=commands.Bot(command_prefix="!")
 
-channel = Client.get_guild(696739378826969228)
-
-Token="Njk2NzMwNDAyMDgxMDc5Mzg2.XotAnQ.J7qCX3e3BGgJ2Ua5k4CrNom4Pfo"
-
-WEBHOOK_URL = "https://discordapp.com/api/webhooks/696746111679070259/r2rUADf_EVOMGvoJvO5biEIzfhiuE0NTgrlQ9QjCBzcXbEcZtVo3KGkH-bAPbpzFFuCv"
+channel = Client.get_guild(CHANNEL_ID)
 
 # Les paramètres d'en-tête de la requête
 headers = {
@@ -54,5 +58,5 @@ async def on_message(message):
                         ):
             await message.channel.send(i)
 
-client.run(Token)
+client.run(SERVER_TOKEN)
 
