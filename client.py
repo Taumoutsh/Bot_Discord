@@ -1,13 +1,5 @@
 import discord
-import pyninegag
 from discord.ext import commands
-import json
-import simplejson
-from urllib import request
-from urllib.error import HTTPError
-from bs4 import BeautifulSoup
-import re
-import requests
 from googlesearch import search
 import os
 from dotenv import load_dotenv
@@ -41,7 +33,7 @@ async def on_message(message):
 
     if message.content.startswith('!commands'):
         await message.channel.send("**Commandes du bot :**\n\n"
-                                   "- Recherches google : **'!google: [recherche]'**\n"
+                                   "- Faire une __recherche google :__ (3 premiers résultats) **'!google: [recherche]'**\n"
                                    "- ")
 
     if message.content.startswith('!google'):
